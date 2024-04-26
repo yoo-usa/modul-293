@@ -1,0 +1,67 @@
+dateModified: 1714135261
+email:
+  fromEmail: dev-test@yoo.digital
+  fromName: 293-m-project
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    44b1b133-2a7f-410d-a791-d08d689ced20: homepage # homepage
+    58e5330c-b0ef-43ce-bc09-04944358f3ee: 293-m-project # 293-m-project
+    0223b707-3c9a-486e-8d9f-4e0a9b65b004: 293-m-project # 293-m-project
+    e64fed43-43e3-4ef1-bd91-cba55dff1e11: homepage # homepage
+    f3796036-0ba8-4173-b40f-873b81ef93c2: Common # Common
+plugins:
+  architect:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  craft-components:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  neo:
+    edition: standard
+    enabled: true
+    licenseKey: JOPFSUHXE19PIL0YLL65MSGT
+    schemaVersion: 4.0.0
+  project-extension:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: DAVSW2BRE3PKQMWQBVI0X9LQ
+    schemaVersion: 3.0.12
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+system:
+  edition: solo
+  live: true
+  name: 293-m-project
+  schemaVersion: 4.5.3.0
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
