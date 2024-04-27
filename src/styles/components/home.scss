@@ -1,0 +1,9 @@
+.container-spotify {
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(400px, 15vw, 70vw);
+  height: 50vh;
+  border-radius: 10px;
+  background-color: rgb(128 128 128 / 70%);
+}
