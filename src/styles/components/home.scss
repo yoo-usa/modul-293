@@ -2,8 +2,10 @@
   position: absolute;
   inset: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(400px, 15vw, 70vw);
-  height: 50vh;
+  width: 60vw;
+  min-width: 400px;
+  height: 60vh;
+  min-height: 300px;
   border-radius: 10px;
-  background-color: rgb(128 128 128 / 70%);
+  background-color: rgb(128 128 158 / 70%);
 }

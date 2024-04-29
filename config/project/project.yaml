@@ -1,8 +1,12 @@
-dateModified: 1714135261
+dateModified: 1714418588
 email:
   fromEmail: dev-test@yoo.digital
   fromName: 293-m-project
   transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
 meta:
   __names__:
     44b1b133-2a7f-410d-a791-d08d689ced20: homepage # homepage
