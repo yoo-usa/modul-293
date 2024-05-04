@@ -1,8 +1,20 @@
-const clientId: string = process.env.SPOTIFY_CLIENT_ID!;
-const clientSecret: string = process.env.SPOTIFY_CLIENT_SECRET!;
+const clientId: string = "94c50c85e2924978abcb86d642c25ac4"//process.SPOTIFY_CLIENT_ID!;
+const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.SPOTIFY_CLIENT_SECRET!;
 
-const list: HTMLElement = document.querySelector(".song-titles__list")!;
+const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connection__list")!;
 let oldArtist: string = "";
+const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
+
+export const init = (rootEl: HTMLElement) => {
+
+  search?.addEventListener("input", async (e: Event) => {
+    e.preventDefault();
+    if (search.value) {
+      const allSongs: Track[] = await getAllSongsBySpecificArtist(search.value);
+      await listAllSongs(allSongs);
+    }
+  });
+};
 
 interface Track {
   name: string;
@@ -24,10 +36,10 @@ interface SpotifyTracksResponse {
   };
 }
 
-function listAllSongs(allSongs: Track[]) {
-  list.innerHTML = "";
+async function listAllSongs(allSongs: Track[]) {
+  list.innerHTML = "<li></li>";
   if (allSongs.length > 0 && oldArtist !== allSongs[0].artists[0].id) {
-    setLogo(allSongs[0].artists[0].uri);
+    await setLogo(allSongs[0].artists[0].uri);
     oldArtist = allSongs[0].artists[0].id;
   }
   allSongs.forEach((song: Track, index: number) => {
@@ -37,16 +49,6 @@ function listAllSongs(allSongs: Track[]) {
     list.appendChild(songTitle);
   });
 }
-
-const search: HTMLInputElement = document.querySelector(".container-spotify__search") as HTMLInputElement;
-
-search?.addEventListener("input", async (e: Event) => {
-  e.preventDefault();
-  if (search.value) {
-    const allSongs: Track[] = await getAllSongsBySpecificArtist(search.value);
-    listAllSongs(allSongs);
-  }
-});
 
 async function getBearerToken(): Promise<string> {
   const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -92,7 +94,7 @@ async function setLogo(uri: string): Promise<void> {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        const logo:HTMLLinkElement = document.querySelector(".navbar__logo")!;
+        const logo: HTMLLinkElement = document.querySelector<HTMLLinkElement>(".navbar__logo")!;
         logo.href = data.external_urls.spotify;
         logo.style.backgroundImage = `url(${data.images[0].url})`;
       }

@@ -10,8 +10,12 @@
         <div style=" height: 100px; background-color: yellow;"><h4>Beispiel inhalt mobile</h4></div>
     {% endblock %}
     {% block desktopContent %}
-        <div style="background-color:lightgrey; width: 100%;">
-            <h4>This is Dummy content for DESKTOP.</h4>
+        <div class="navbar-desktop" style="background-color:lightgrey; width: 100%;">
+            <div>Logo</div>
+            <ul class="navbar-desktop__links">
+                <li><a>Home</a></li>
+                <li><a>About</a></li>
+            </ul>
         </div>
     {% endblock %}
 {% endembed %}

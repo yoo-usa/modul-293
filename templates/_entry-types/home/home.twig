@@ -13,11 +13,6 @@
         { 'width' : 993, 'height': 'auto', 'ratio': 2.5 },
         { 'width' : 1920, 'ratio': 2.5 },
     ] %}
-
-    <div class="container-homepage">
-        <div class="container-spotify">
-            <input type="text" class="container-spotify__search">
-        </div>
-    </div>
+        {% include '_components/spotify-connection.twig' %}
 {% endblock %}
 

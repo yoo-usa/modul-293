@@ -4,4 +4,4 @@ componentLoader('navbar', 'partials/navbar');
 componentLoader('storybook');
 componentLoader('color-palette');
 componentLoader('grid-example');
-componentLoader('spotify-connection');
+componentLoader('spotify-connection', 'components');

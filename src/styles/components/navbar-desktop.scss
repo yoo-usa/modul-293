@@ -1,0 +1,13 @@
+@use "../helpers/mixins";
+@use "../helpers/color";
+
+.navbar-desktop {
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  &__links {
+
+  }
+}

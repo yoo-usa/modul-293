@@ -1,0 +1,51 @@
+@use "../helpers/mixins";
+@use "../helpers/color";
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.spotify-connection {
+  @include mixins.content-grid-content-block;
+
+  display: grid;
+  grid-template-areas: "songs search";
+  grid-template-columns: 1fr 1fr ;
+  height: 60vh;
+  min-height: 300px;
+  border-radius: 10px;
+  margin: 5vh 10vw;
+  background-color: rgb(128 128 158 / 70%);
+
+  &__search {
+    grid-area: search;
+    justify-self: center;
+    align-self: center;
+    height: 3rem;
+    width: 80%;
+  }
+
+  &__list {
+    grid-area: songs;
+    list-style: none;
+    justify-self: center;
+    align-self: center;
+    max-height: 80%;
+    width: 80%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+}
+
