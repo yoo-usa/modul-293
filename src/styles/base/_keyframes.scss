@@ -1,1 +1,10 @@
 @use "../abstract/variables/color";
+
+@keyframes cursor {
+  0%, 100% {
+    opacity: 0;
+  }
+  40%, 75% {
+    opacity: 1;
+  }
+}

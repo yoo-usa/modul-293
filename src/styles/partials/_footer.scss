@@ -1,5 +1,12 @@
 .footer {
   grid-row: footer-start / footer-end;
-  height: 10rem;
-  background-color: palevioletred;
+  background-color: rgb(60 60 60 / 90%);
+
+  &__impressum {
+    list-style: none;
+  }
+
+  &__impressum-element {
+    color: white;
+  }
 }

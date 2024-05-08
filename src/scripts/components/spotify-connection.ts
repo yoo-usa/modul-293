@@ -1,12 +1,11 @@
-const clientId: string = "94c50c85e2924978abcb86d642c25ac4"//process.SPOTIFY_CLIENT_ID!;
+const clientId: string = "94c50c85e2924978abcb86d642c25ac4";//process.SPOTIFY_CLIENT_ID!;
 const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.SPOTIFY_CLIENT_SECRET!;
 
 const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connection__list")!;
 let oldArtist: string = "";
 const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
 
-export const init = (rootEl: HTMLElement) => {
-
+export const init = () => { // rootEl: HTMLElement
   search?.addEventListener("input", async (e: Event) => {
     e.preventDefault();
     if (search.value) {
@@ -25,27 +24,27 @@ interface Track {
 interface Artist {
   id: string;
   name: string;
-  uri: string;
+  href: string;
   external_urls: { spotify: string };
   images: { url: string }[];
 }
 
-interface SpotifyTracksResponse {
-  tracks: {
-    items: Track[];
-  };
-}
+// interface SpotifyTracksResponse {
+//   tracks: {
+//     items: Track[];
+//   };
+// }
 
 async function listAllSongs(allSongs: Track[]) {
-  list.innerHTML = "<li></li>";
+  list.innerHTML = "";
   if (allSongs.length > 0 && oldArtist !== allSongs[0].artists[0].id) {
-    await setLogo(allSongs[0].artists[0].uri);
+    await setLogo(allSongs[0].artists[0].href);
     oldArtist = allSongs[0].artists[0].id;
   }
   allSongs.forEach((song: Track, index: number) => {
     const songTitle = document.createElement("li");
-    songTitle.classList.add("song-titles__list-item");
-    songTitle.innerHTML = `${index + 1}. <b>${song.name}</b> - <a href="${song.artists[0].external_urls.spotify}" class="song-artist">${song.artists[0].name}</a>`;
+    songTitle.classList.add("spotify-connection__list-item");
+    songTitle.innerHTML = `${index + 1}. <b>${song.name}</b> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
     list.appendChild(songTitle);
   });
 }
@@ -94,7 +93,7 @@ async function setLogo(uri: string): Promise<void> {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        const logo: HTMLLinkElement = document.querySelector<HTMLLinkElement>(".navbar__logo")!;
+        const logo: HTMLLinkElement = document.querySelector<HTMLLinkElement>(".navbar__desktop-content-logo")!;
         logo.href = data.external_urls.spotify;
         logo.style.backgroundImage = `url(${data.images[0].url})`;
       }

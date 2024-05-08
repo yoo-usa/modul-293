@@ -46,7 +46,7 @@
 
     {% block datalayerPush %}{% endblock %}
 </head>
-<body>
+<body style="background-image: url({{ entry.backgroundImage.one().url }})">
 
     {{ requirePageAccess() }}
 

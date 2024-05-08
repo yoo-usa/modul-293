@@ -10,12 +10,16 @@
         <div style=" height: 100px; background-color: yellow;"><h4>Beispiel inhalt mobile</h4></div>
     {% endblock %}
     {% block desktopContent %}
-        <div class="navbar-desktop" style="background-color:lightgrey; width: 100%;">
-            <div>Logo</div>
-            <ul class="navbar-desktop__links">
-                <li><a>Home</a></li>
-                <li><a>About</a></li>
-            </ul>
-        </div>
+        <a class="navbar__desktop-content-logo" style="background-image: url({{ entry.logo.one().url }})"></a>
+        <ul class="navbar__desktop-content-links">
+            <li class="navbar__desktop-content-link">
+                <a>Home</a>
+                <span class="navbar__desktop-content-cursor">&#9602;</span>
+            </li>
+            <li class="navbar__desktop-content-link">
+                <a>About</a>
+                <span class="navbar__desktop-content-cursor">&#9602;</span>
+            </li>
+        </ul>
     {% endblock %}
 {% endembed %}

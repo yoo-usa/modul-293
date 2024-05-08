@@ -1,5 +1,5 @@
 fieldLayouts:
-  68c6df2a-b2d9-423b-b89d-75e056fb6a4b:
+  cfab1eea-3c13-4789-b3eb-7ed0b433f424:
     tabs:
       -
         elementCondition: null
@@ -26,46 +26,42 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 819cafad-bdbd-488e-aae8-4cfd22568003
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: e281ac19-1285-41fb-8a31-d2c440c0d7f3
             userCondition: null
             warning: null
             width: 100
           -
+            attribute: alt
+            class: null
+            cols: null
+            disabled: false
             elementCondition: null
-            fieldUid: 639a69ad-d5f3-4057-8d87-137c69661c57 # Logo
+            id: null
             instructions: null
             label: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: true
             required: false
+            rows: null
             tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d3d38bfd-e09b-4bf3-aeaf-486667254328
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: f2f10eba-1a45-41d9-9e63-c76bcb33a98b # Background Image
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b2fd7d0a-36f4-4111-9358-6e6ef8196b8b
+            title: null
+            type: craft\fieldlayoutelements\assets\AltField
+            uid: 13413487-b34f-4f89-8345-c1987af2c48e
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: bf334499-f8ea-47d6-83f9-c6e0b2bf9613
+        uid: bc23138f-3d9c-490d-a1d9-60e68feb081f
         userCondition: null
-handle: homepage
-hasTitleField: false
-name: homepage
-section: e64fed43-43e3-4ef1-bd91-cba55dff1e11 # homepage
-showStatusField: true
-slugTranslationKeyFormat: null
-slugTranslationMethod: site
-sortOrder: 1
-titleFormat: '{section.name|raw}'
+fs: logo
+handle: logo
+name: Logo
+sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+transformFs: ''
+transformSubpath: ''

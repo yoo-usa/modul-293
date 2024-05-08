@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "../helpers/mixins";
+
+.navbar {
+  box-shadow: none;
+  background-color: transparent;
+  user-select: none;
+  &__desktop-content {
+    @include mixins.content-grid-full-block;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+
+    &-links {
+      display: flex;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      font-optical-sizing: auto;
+      font-weight: normal;
+      list-style: none;
+      justify-content: space-evenly;
+    }
+
+    &-link {
+      display: grid;
+      position: relative;
+      grid-template-areas:
+        "link"
+        "cursor";
+
+      margin-left: 1.5rem;
+    }
+
+    &-link a {
+      grid-area: link;
+    }
+
+    &-link:hover,
+    &-link a:hover{
+      color: rgb(81, 81, 92);
+      cursor: pointer;
+    }
+
+    &-cursor {
+      display: none;
+      position: absolute;
+      top: -1rem;
+      right: 0;
+      grid-area: cursor;
+      font-size: 1rem;
+    }
+
+    &-link:hover .navbar__desktop-content-cursor {
+      display: block;
+      color: black;
+      animation: cursor 1s infinite;
+    }
+
+    &-logo {
+      height: 6rem;
+      width: 6rem;
+      margin: 1rem 0;
+      border-radius: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
