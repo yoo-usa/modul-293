@@ -3,7 +3,9 @@ const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.S
 
 const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connection__list")!;
 let oldArtist: string = "";
+let lastSong: HTMLLIElement;
 const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
+const audio: HTMLAudioElement = document.querySelector(".spotify-connection__audio") as HTMLAudioElement;
 
 export const init = () => { // rootEl: HTMLElement
   search?.addEventListener("input", async (e: Event) => {
@@ -19,6 +21,7 @@ interface Track {
   name: string;
   popularity: number;
   artists: Artist[];
+  preview_url: string;
 }
 
 interface Artist {
@@ -44,7 +47,9 @@ async function listAllSongs(allSongs: Track[]) {
   allSongs.forEach((song: Track, index: number) => {
     const songTitle = document.createElement("li");
     songTitle.classList.add("spotify-connection__list-item");
-    songTitle.innerHTML = `${index + 1}. <b>${song.name}</b> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
+    songTitle.dataset.song = song.preview_url;
+    songTitle.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
+    songTitle.addEventListener("click", () => currentSong(songTitle))
     list.appendChild(songTitle);
   });
 }
@@ -99,4 +104,15 @@ async function setLogo(uri: string): Promise<void> {
       }
     })
     .catch((error) => console.error("Error:", error));
+}
+
+function currentSong(songTitle: HTMLLIElement) {
+  if(lastSong) {
+    lastSong.classList.remove("spotify-connection__list-item--active")
+  }
+  lastSong = songTitle;
+  songTitle.classList.add("spotify-connection__list-item--active");
+  if (lastSong.dataset.song) {
+    audio.src = lastSong.dataset.song;
+  }
 }

@@ -1,12 +1,13 @@
 .footer {
   grid-row: footer-start / footer-end;
-  background-color: rgb(60 60 60 / 90%);
+  background-color: rgba(97 97 120 / 80%);
 
   &__impressum {
     list-style: none;
+    line-height: 1.25rem;
   }
 
   &__impressum-element {
-    color: white;
+    font-family: "Roboto Mono", monospace;
   }
 }

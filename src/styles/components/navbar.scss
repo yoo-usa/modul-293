@@ -5,6 +5,7 @@
   box-shadow: none;
   background-color: transparent;
   user-select: none;
+
   &__desktop-content {
     @include mixins.content-grid-full-block;
 

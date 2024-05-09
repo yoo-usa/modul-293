@@ -6,7 +6,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -21,7 +21,9 @@
   @include mixins.content-grid-content-block;
 
   display: grid;
-  grid-template-areas: "songs search";
+  grid-template-areas:
+    "songs search"
+    "songs audio";
   grid-template-columns: 1fr 1fr ;
   height: 60vh;
   min-height: 300px;
@@ -37,6 +39,12 @@
     border-radius: 3px;
     height: 3rem;
     width: 80%;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  &__audio {
+    grid-area: audio;
+    justify-self: center;
   }
 
   &__list {
@@ -45,17 +53,26 @@
     justify-self: center;
     align-self: center;
     max-height: 80%;
-    width: 80%;
+    width: 95%;
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
 
-  &__list-item {
-    color: rgb(223, 223, 223);
+  &__list-item, &__song {
+    color: rgb(223 223 223);
+  }
+
+  &__list-item:nth-child(2n -1) {
+    background-color: rgb(89 89 110 / 90%);
+  }
+
+  &__list-item--active {
+    background-color: rgba(58, 58, 73, 0.9) !important;
   }
 
   &__artist {
     color: rgb(207, 200, 200);
+    font-family: "Roboto Mono", monospace;
   }
 }
 

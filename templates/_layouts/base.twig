@@ -46,10 +46,10 @@
 
     {% block datalayerPush %}{% endblock %}
 </head>
-<body style="background-image: url({{ entry.backgroundImage.one().url }})">
+<body>
 
     {{ requirePageAccess() }}
-
+    <div class="background" style="background-image: url({{ entry.backgroundImage.one().url }})"></div>
     {% block navigation %}
         {% include "_partials/navbar/navbar.twig" with {
             overwriteCss: true
