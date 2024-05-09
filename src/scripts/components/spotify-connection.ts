@@ -5,7 +5,7 @@ const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connecti
 let oldArtist: string = "";
 let lastSong: HTMLLIElement;
 const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
-const audio: HTMLAudioElement = document.querySelector(".spotify-connection__audio") as HTMLAudioElement;
+const audio: HTMLIFrameElement = document.querySelector(".spotify-connection__audio") as HTMLIFrameElement;
 
 export const init = () => { // rootEl: HTMLElement
   search?.addEventListener("input", async (e: Event) => {
@@ -21,7 +21,9 @@ interface Track {
   name: string;
   popularity: number;
   artists: Artist[];
-  preview_url: string;
+  external_urls: {
+    spotify: string;
+  };
 }
 
 interface Artist {
@@ -47,7 +49,7 @@ async function listAllSongs(allSongs: Track[]) {
   allSongs.forEach((song: Track, index: number) => {
     const songTitle = document.createElement("li");
     songTitle.classList.add("spotify-connection__list-item");
-    songTitle.dataset.song = song.preview_url;
+    songTitle.dataset.song = `https://open.spotify.com/embed/track/${song.external_urls.spotify.split("/").slice(-1)}?utm_source=generator`;
     songTitle.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
     songTitle.addEventListener("click", () => currentSong(songTitle))
     list.appendChild(songTitle);
@@ -112,7 +114,7 @@ function currentSong(songTitle: HTMLLIElement) {
   }
   lastSong = songTitle;
   songTitle.classList.add("spotify-connection__list-item--active");
-  if (lastSong.dataset.song) {
-    audio.src = lastSong.dataset.song;
+  if (songTitle.dataset.song) {
+    audio.src = songTitle.dataset.song;
   }
 }
