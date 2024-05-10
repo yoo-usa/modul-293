@@ -2,6 +2,16 @@ const clientId: string = "94c50c85e2924978abcb86d642c25ac4";//process.SPOTIFY_CL
 const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.SPOTIFY_CLIENT_SECRET!;
 
 const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connection__list")!;
+
+if(list.innerHTML.trim() == "") {
+  for(let i = 0; i < 50; i++) {
+    const li = document.createElement("li")
+    li.classList.add("spotify-connection__list-item")
+    li.addEventListener("click", () => currentSong(li));
+    list.appendChild(li)
+  }
+}
+
 let oldArtist: string = "";
 let lastSong: HTMLLIElement;
 const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
@@ -34,25 +44,24 @@ interface Artist {
   images: { url: string }[];
 }
 
-// interface SpotifyTracksResponse {
-//   tracks: {
-//     items: Track[];
-//   };
-// }
-
 async function listAllSongs(allSongs: Track[]) {
-  list.innerHTML = "";
+  const allElements: NodeListOf<HTMLLIElement> = document.querySelectorAll(".spotify-connection__list-item");
+
   if (allSongs.length > 0 && oldArtist !== allSongs[0].artists[0].id) {
     await setLogo(allSongs[0].artists[0].href);
     oldArtist = allSongs[0].artists[0].id;
   }
-  allSongs.forEach((song: Track, index: number) => {
-    const songTitle = document.createElement("li");
-    songTitle.classList.add("spotify-connection__list-item");
-    songTitle.dataset.song = `https://open.spotify.com/embed/track/${song.external_urls.spotify.split("/").slice(-1)}?utm_source=generator`;
-    songTitle.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
-    songTitle.addEventListener("click", () => currentSong(songTitle))
-    list.appendChild(songTitle);
+
+  allElements.forEach((li: HTMLLIElement, index: number) => {
+    const song: Track = allSongs[index];
+    const id: string = song.external_urls.spotify.split("/").slice(-1)[0];
+
+    if(li.dataset.id != id) {
+      li.classList.add("spotify-connection__list-item");
+      li.dataset.song = `https://open.spotify.com/embed/track/${id}?utm_source=generator`;
+      li.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
+      li.dataset.id = id;
+    }
   });
 }
 

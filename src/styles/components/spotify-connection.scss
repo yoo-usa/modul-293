@@ -10,11 +10,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(75 75 96 / 90%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(58 58 73 / 90%);
 }
 
 .spotify-connection {
@@ -45,6 +45,10 @@
   &__audio {
     grid-area: audio;
     justify-self: center;
+    border-radius: 12px;
+    width: 90%;
+    height: 152px;
+    user-select: none;
   }
 
   &__list {
@@ -60,6 +64,11 @@
 
   &__list-item, &__song {
     color: rgb(223 223 223);
+    text-decoration: none;
+  }
+
+  &__list-item:hover, &__song:hover, &__artist:hover {
+    color: rgb(175, 173, 173);
   }
 
   &__list-item:nth-child(2n -1) {
