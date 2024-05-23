@@ -1,0 +1,15 @@
+defaultPlacement: end
+enableVersioning: true
+handle: about
+name: About
+propagationMethod: all
+siteSettings:
+  0223b707-3c9a-486e-8d9f-4e0a9b65b004: # 293-m-project
+    enabledByDefault: true
+    hasUrls: true
+    template: _entry-types/About/about.twig
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: 2029c043-b99e-4531-bd1c-62d12eba4709
+type: structure

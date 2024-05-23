@@ -1,11 +1,6 @@
 {% extends '_layouts/base.twig' %}
-{% block isoBadge %}{% endblock %}
-{% block jumpToTop %}{% endblock %}
-
 
 {% block content %}
-    {{ loadCssComponent('home') }}
-
     {% set mediaDimensions = [
         { 'width' : 420, 'height': 'auto', 'ratio': 1, hightDpi: 2 },
         { 'width' : 620, 'height': 'auto', 'ratio': 2 },
@@ -13,7 +8,11 @@
         { 'width' : 1920, 'ratio': 2.5 },
     ] %}
 
-    {% include '_components/spotify-connection.twig' %}
+    {% include '_components/banner.twig' with {
+        bannerImage: entry.bannerImage.one().url
+    } %}
 
+    {% if entry.title == 'Location' %}
+        {% include '_components/map.twig' %}
+    {% endif %}
 {% endblock %}
-

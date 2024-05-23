@@ -1,0 +1,19 @@
+columnSuffix: nqyxulez
+contentColumnType: text
+fieldGroup: 592d68f4-b1af-4517-93fc-ad9dadb2ab09 # About
+handle: introduction
+instructions: null
+name: Introduction
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

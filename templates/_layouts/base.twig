@@ -49,7 +49,10 @@
 <body>
 
     {{ requirePageAccess() }}
-    <div class="background" style="background-image: url({{ entry.backgroundImage.one().url }})"></div>
+
+    {% if entry.backgroundImage and entry.backgroundImage.one() %}
+        <div class="background" style="background-image: url({{ entry.backgroundImage.one().url }})"></div>
+    {% endif %}
     {% block navigation %}
         {% include "_partials/navbar/navbar.twig" with {
             overwriteCss: true

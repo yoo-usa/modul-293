@@ -35,10 +35,6 @@
       margin-left: 1.5rem;
     }
 
-    &-link a {
-      grid-area: link;
-    }
-
     &-link:hover,
     &-link a:hover{
       color: rgb(81, 81, 92);
@@ -58,6 +54,12 @@
       display: block;
       color: black;
       animation: cursor 1s infinite;
+    }
+
+    &-link-title {
+      grid-area: link;
+      color: black;
+      text-decoration: none;
     }
 
     &-logo {

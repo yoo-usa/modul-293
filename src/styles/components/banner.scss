@@ -1,0 +1,12 @@
+@use "../helpers/mixins";
+@use "../helpers/color";
+
+.banner {
+  position: absolute;
+  height:  30vh;
+  width: 100vw;
+  top: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

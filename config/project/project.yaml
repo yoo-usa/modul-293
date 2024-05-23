@@ -1,4 +1,4 @@
-dateModified: 1715169923
+dateModified: 1716057503
 email:
   fromEmail: dev-test@yoo.digital
   fromName: 293-m-project
@@ -20,11 +20,17 @@ fs:
     url: '@web/images/uploads/logo'
 meta:
   __names__:
+    1c2c9305-05ec-4708-a9bc-b5bb20733aac: 'Banner Image' # Banner Image
+    39b1bd22-567b-4b8c-a35e-1812f761a414: Introduction # Introduction
     44b1b133-2a7f-410d-a791-d08d689ced20: homepage # homepage
     58e5330c-b0ef-43ce-bc09-04944358f3ee: 293-m-project # 293-m-project
     0223b707-3c9a-486e-8d9f-4e0a9b65b004: 293-m-project # 293-m-project
+    592d68f4-b1af-4517-93fc-ad9dadb2ab09: About # About
     639a69ad-d5f3-4057-8d87-137c69661c57: Logo # Logo
     651cb76d-e620-419f-9030-4a6c45f86ed3: 'Background Image' # Background Image
+    ba830877-e04b-4616-808c-6b8461b0b2e2: About # About
+    d2f9ed8d-d015-40ee-91a5-8d893b010e25: 'Info Text' # Info Text
+    d14d2f9e-1b65-4dc6-8871-dfabe0db522f: Default # Default
     e64fed43-43e3-4ef1-bd91-cba55dff1e11: homepage # homepage
     f2f10eba-1a45-41d9-9e63-c76bcb33a98b: 'Background Image' # Background Image
     f8041b4b-1238-4323-a5c5-ee22373ce456: Logo # Logo
