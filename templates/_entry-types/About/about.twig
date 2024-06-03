@@ -9,7 +9,9 @@
     ] %}
 
     {% include '_components/banner.twig' with {
-        bannerImage: entry.bannerImage.one().url
+        bannerImage: entry.bannerImage.one().url,
+        intro: entry.introduction,
+        content: entry.infoText
     } %}
 
     {% if entry.title == 'Location' %}
