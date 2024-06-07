@@ -1,14 +1,21 @@
 {% embed '@craft-components/navbar/navbar.twig' %}
     {% block navbarMobileHeaderContent %}
-        <a href="{{ siteUrl('') }}">Logo</a>
+        <a class="navbar__desktop-content-logo" style="background-image: url({{ entry.logo.one().url }})"></a>
         {{ parent() }}
     {% endblock %}
     {% block navbarMobileContentBefore %}
-        <div style=" height: 100px; background-color: green;"><h4>Beispiel inhalt mobile</h4></div>
+        <div class="navbar__mobile-content-link">
+            <a href="/" class="navbar__mobile-content-link-title">Home</a>
+        </div>
+        <div class="navbar__mobile-content-link">
+            <a href="/about" class="navbar__mobile-content-link-title">About</a>
+        </div>
     {% endblock %}
-    {% block navbarMobileContentAfter %}
-        <div style=" height: 100px; background-color: yellow;"><h4>Beispiel inhalt mobile</h4></div>
-    {% endblock %}
+{#    {% block navbarMobileContentAfter %}#}
+{#        <div style=" height: 100px; background-color: yellow;"><h4>Beispiel inhalt mobile</h4></div>#}
+{#        <div style=" height: 100px; background-color: yellow;"><h4>Beispiel inhalt mobile</h4></div>#}
+
+{#    {% endblock %}#}
     {% block desktopContent %}
         <a class="navbar__desktop-content-logo" style="background-image: url({{ entry.logo.one().url }})"></a>
         <ul class="navbar__desktop-content-links">

@@ -1,5 +1,7 @@
 $black: black;
 $white: white;
+$grey: rgb(128 128 128);
+// $grey-blue: rgb(128 128 158);
 $transparent: rgba(255, 255, 255, 0%);
 
 $font-color-light: $black;
@@ -15,6 +17,12 @@ $base-colors: (
   success: rgb(29, 233, 182),
   link: rgb(235, 255, 111),
   focus: rgb(255, 0, 200),
+  grey-blue: rgb(128 128 158)
+);
+
+$scroll: (
+  thumb: rgb(75 75 96),
+  thumb-hover: rgb(58 58 73)
 );
 
 $color-overlay-map: (
@@ -28,5 +36,5 @@ $color-overlay-map: (
   700: (o: 0.5, oc: $black),
   800: (o: 0.75, oc: $black),
   900: (o: 0.9, oc: $black),
-  950: (o: 0.95, oc: $black),
+  950: (o: 0.95, oc: $black)
 );

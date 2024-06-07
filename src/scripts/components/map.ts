@@ -1,4 +1,4 @@
-import { Loader } from "@googlemaps/js-api-loader";
+ import { Loader } from "@googlemaps/js-api-loader";
 
 export const init = () => {
   const loader = new Loader({

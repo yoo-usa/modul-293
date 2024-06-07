@@ -87,6 +87,8 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
     "@types/googlemaps": "^3.43.3",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "swiper": "~10.0.4"
   }
 }
