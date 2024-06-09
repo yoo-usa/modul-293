@@ -1,0 +1,19 @@
+@use "../helpers/mixins";
+@use "../helpers/color";
+
+.email-form {
+  @include mixins.content-grid-content-block;
+
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0 0;
+  padding-inline: 6rem;
+
+  &__label {
+
+  }
+
+  &__input {
+    margin: 0 0 1rem 0;
+  }
+}

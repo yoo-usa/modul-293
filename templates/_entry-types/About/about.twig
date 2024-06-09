@@ -14,7 +14,11 @@
         content: entry.infoText
     } %}
 
-    {% if entry.title == 'Location' %}
+    {% if entry.islocation %}
         {% include '_components/map.twig' %}
+    {% endif %}
+
+    {% if entry.isform %}
+        {% include '_components/email-form.twig' %}
     {% endif %}
 {% endblock %}

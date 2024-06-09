@@ -1,7 +1,12 @@
+.navbar--open .navbar-burger {
+  border-color: grey;
+}
+
 .navbar-burger {
   border-color: grey;
+  margin: 0 1rem;
 
-  &__icon-bar{
+  &__icon-bar {
     background-color: grey;
   }
 }

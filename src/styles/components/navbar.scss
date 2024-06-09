@@ -1,17 +1,68 @@
 @use "sass:map";
 @use "../helpers/mixins";
 
+@keyframes slide {
+  from {
+    transform: translateX(75%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .navbar {
   box-shadow: none;
   background-color: transparent;
   user-select: none;
+  overflow-y: hidden;
 
   &__mobile-header {
     background: transparent;
   }
 
   &__mobile-content {
+    background-color: rgb(89 89 110 / 90%);
+    box-shadow: 0 0 50px 5px rgb(60 60 60 / 70%);
+    border-radius: 5px;
 
+    &-link {
+      font-size: 1.5rem;
+      padding: 2rem 0;
+      text-align: center;
+
+      &-title {
+        font-family: "Roboto Mono", monospace;
+        color: white;
+        text-decoration: none;
+      }
+
+      &-title:hover {
+        color: rgb(200, 200, 200);
+      }
+    }
+
+    &-link-dropdown {
+      position: relative;
+      left: 50%;
+      list-style: none;
+      grid-area: cursor;
+      font-size: 1rem;
+      padding: 0;
+      text-align: left;
+
+      &-element {
+        color: white;
+
+        &-link {
+          color: white;
+          text-decoration: none;
+        }
+
+        &-link:hover {
+          color: rgb(200, 200, 200);
+        }
+      }
+    }
   }
 
   &__desktop-content {
@@ -33,6 +84,27 @@
       justify-content: space-evenly;
     }
 
+    &-link-dropdown {
+      display: none;
+      position: absolute;
+      list-style: none;
+      grid-area: cursor;
+      font-size: 1rem;
+      padding: 0;
+
+      &-element {
+        transform: translateX(75%);
+        &-link {
+          color: black;
+          text-decoration: none;
+        }
+
+        &-link:hover {
+          color: rgb(81, 81, 92);
+        }
+      }
+    }
+
     &-link {
       display: grid;
       position: relative;
@@ -44,9 +116,26 @@
     }
 
     &-link:hover,
-    &-link a:hover{
+    &-link:hover &-link-title{
       color: rgb(81, 81, 92);
       cursor: pointer;
+
+      & .navbar__desktop-content-cursor {
+        display: block;
+        color: black;
+        animation: cursor 1s infinite;
+      }
+    }
+
+    &-link:hover &-link-dropdown {
+      display: block;
+    }
+
+    @for $i from 1 through 10 {
+      &-link:hover &-link-dropdown-element:nth-child(#{$i}n) {
+        animation: slide 0.5s #{$i * 0.1}s ease-in-out;
+        transform: translateX(0);
+      }
     }
 
     &-cursor {
@@ -58,12 +147,6 @@
       font-size: 1rem;
     }
 
-    &-link:hover .navbar__desktop-content-cursor {
-      display: block;
-      color: black;
-      animation: cursor 1s infinite;
-    }
-
     &-link-title {
       grid-area: link;
       color: black;
@@ -71,8 +154,8 @@
     }
 
     &-logo {
-      height: 6rem;
-      width: 6rem;
+      height: clamp(3rem, 10vw, 6rem);
+      width: clamp(3rem, 10vw, 6rem);
       margin: 1rem 0;
       border-radius: 50%;
       background-size: cover;
@@ -83,7 +166,13 @@
 }
 
 @media screen and (width <= 62rem) {
-  .navbar__desktop-content {
-    display: none;
+  .navbar {
+    &__desktop-content {
+      display: none;
+    }
+
+    &__scroll-wrapper {
+      padding: 6rem;
+    }
   }
 }
