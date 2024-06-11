@@ -65,7 +65,7 @@
   "repositories": {
     "craft-components": {
       "type": "vcs",
-      "url": "git@bitbucket.org:yooapps/craft-components.git"
+      "url": "git@ssh.dev.azure.com:v3/yooag/YOO/craft-components"
     },
     "project-extension": {
       "type": "path",
