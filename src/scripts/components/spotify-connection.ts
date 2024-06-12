@@ -1,9 +1,10 @@
 const clientId: string = "94c50c85e2924978abcb86d642c25ac4";//process.SPOTIFY_CLIENT_ID!;
 const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.SPOTIFY_CLIENT_SECRET!;
 
-const list: HTMLElement = document.querySelector<HTMLElement>(".spotify-connection__list")!;
+const list = document.querySelector<HTMLElement>(".spotify-connection__list");
+const spinner = document.querySelector<HTMLElement>(".spotify-connection__spinner");
 
-if(list.innerHTML.trim() == "") {
+if(list && list.innerHTML.trim() == "") {
   for(let i = 0; i < 50; i++) {
     const li = document.createElement("li")
     li.classList.add("spotify-connection__list-item")
@@ -51,7 +52,9 @@ async function listAllSongs(allSongs: Track[]) {
     await setLogo(allSongs[0].artists[0].href);
     oldArtist = allSongs[0].artists[0].id;
   }
-
+  if(spinner){
+    spinner.classList.remove("spotify-connection__spinner--active");
+  }
   allElements.forEach((li: HTMLLIElement, index: number) => {
     const song: Track = allSongs[index];
     const id: string = song.external_urls.spotify.split("/").slice(-1)[0];
@@ -82,6 +85,11 @@ async function getBearerToken(): Promise<string> {
 }
 
 async function getAllSongsBySpecificArtist(artist: string): Promise<Track[]> {
+  if(spinner) {
+    spinner.classList.add("spotify-connection__spinner--active");
+
+  }
+
   const bearerToken = await getBearerToken();
   const response = await fetch(
     `https://api.spotify.com/v1/search?q=artist:${artist}&type=track&market=US&limit=50`,
@@ -109,9 +117,13 @@ async function setLogo(uri: string): Promise<void> {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        const logo: HTMLLinkElement = document.querySelector<HTMLLinkElement>(".navbar__desktop-content-logo")!;
-        logo.href = data.external_urls.spotify;
-        logo.style.backgroundImage = `url(${data.images[0].url})`;
+        const logos = document.querySelectorAll<HTMLLinkElement>(".navbar__desktop-content-logo");
+        if(logos) {
+          logos.forEach(logo => {
+            logo.href = data.external_urls.spotify;
+            logo.style.backgroundImage = `url(${data.images[0].url})`;
+          })
+        }
       }
     })
     .catch((error) => console.error("Error:", error));

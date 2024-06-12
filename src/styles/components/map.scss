@@ -4,9 +4,15 @@
 .map {
   @include mixins.content-grid-content-block;
   padding-inline: 7rem;
-  margin: 10rem 0 0 0;
+  margin: 1rem 0 0 0;
 
   &__content {
     height: 25rem;
+  }
+}
+
+@media screen and (width < 770px) {
+  .map {
+    padding-inline: 0;
   }
 }

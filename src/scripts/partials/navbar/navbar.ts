@@ -74,15 +74,6 @@ export const setNavbarOpenState = () => {
       setClassOutlineOnBody();
       e.stopPropagation();
     });
-
-    if (
-      rootEl.classList.contains(classContext)
-      || rootEl.classList.contains(classOppositeContext)
-    ) {
-      enableBodyScrollLock();
-    } else {
-      disableBodyScrollLock();
-    }
   });
 };
 

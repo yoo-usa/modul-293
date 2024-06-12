@@ -5,4 +5,5 @@ componentLoader('storybook');
 componentLoader('color-palette');
 componentLoader('grid-example');
 componentLoader('spotify-connection');
-componentLoader('map')
+componentLoader('map');
+componentLoader('email-form');

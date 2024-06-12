@@ -1,0 +1,14 @@
+{{ loadCssComponent('email-form') }}
+
+<form class="email-form" method="post">
+    <label class="email-form__label" for="email">E-Mail: </label>
+    <input class="email-form__input" type="email" id="email" name="email" placeholder="sigmas@gmail.com" required />
+
+    <label class="email-form__label" for="subject">Subject: </label>
+    <input class="email-form__input" type="text" id="subject" name="subject" maxlength="25" />
+
+    <label class="email-form__label" for="email-content">Message: </label>
+    <textarea class="email-form__input" id="email-content" name="email-content"></textarea>
+
+    <input class="email-form__submit" type="submit">
+</form>

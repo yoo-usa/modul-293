@@ -9,10 +9,16 @@
     ] %}
 
     {% include '_components/banner.twig' with {
-        bannerImage: entry.bannerImage.one().url
+        bannerImage: entry.bannerImage.one().url,
+        intro: entry.introduction,
+        content: entry.infoText
     } %}
 
-    {% if entry.title == 'Location' %}
+    {% if entry.islocation %}
         {% include '_components/map.twig' %}
+    {% endif %}
+
+    {% if entry.isform %}
+        {% include '_components/email-form.twig' %}
     {% endif %}
 {% endblock %}
