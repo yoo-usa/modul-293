@@ -16,6 +16,10 @@
   user-select: none;
   overflow-y: hidden;
 
+  &__scroll-wrapper {
+    overflow-x: hidden !important;
+  }
+
   &__mobile-header {
     background: transparent;
   }

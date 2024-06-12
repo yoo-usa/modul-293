@@ -85,13 +85,10 @@
     "webpack-stream": "~7.0.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@googlemaps/js-api-loader": "^1.16.6",
     "@types/googlemaps": "^3.43.3",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
->>>>>>> 3fa539e15c0ca94233dcdd4fbbf8634394b59eb7
     "swiper": "~10.0.4"
   }
 }
