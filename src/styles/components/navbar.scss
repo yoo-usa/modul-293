@@ -17,7 +17,14 @@
   box-shadow: none;
   user-select: none;
 
+  &.navbar--open {
+    & .navbar__scroll-wrapper {
+      display: block;
+    }
+  }
+
   &__scroll-wrapper {
+    display: none;
     overflow-x: hidden !important; //stylelint-disable-line
   }
 
