@@ -3,8 +3,9 @@
 
 .map {
   @include mixins.content-grid-content-block;
+
+  margin: 1rem 0 0;
   padding-inline: 7rem;
-  margin: 1rem 0 0 0;
 
   &__content {
     height: 25rem;

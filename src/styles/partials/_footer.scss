@@ -1,17 +1,13 @@
 .footer {
   display: flex;
-  justify-content: space-between;
   grid-row: footer-start / footer-end;
-  background-color: rgba(97 97 120 / 80%);
-
-  &__about {
-
-  }
+  justify-content: space-between;
+  background-color: rgba(97, 97, 120, 80%);
 
   &__impressum {
-    list-style: none;
-    line-height: 1.25rem;
     margin-block: 0.5rem;
+    line-height: 1.25rem;
+    list-style: none;
   }
 
   &__impressum-element {

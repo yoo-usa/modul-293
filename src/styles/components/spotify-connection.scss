@@ -10,11 +10,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(map-get(color.$scroll, thumb), 90%);
+  background: rgba(map-get(color.$scroll, thumb), 90%); //stylelint-disable-line
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(map-get(color.$scroll, thumb-hover), 90%);
+  background: rgba(map-get(color.$scroll, thumb-hover), 90%); //stylelint-disable-line
 }
 
 .spotify-connection {
@@ -24,61 +24,64 @@
   grid-template-areas:
     "songs search"
     "songs audio";
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr;
   height: 60vh;
   min-height: 300px;
-  border-radius: 10px;
   margin-inline: 5rem;
-  background-color: rgba(map-get(color.$base-colors, grey-blue), 70%);
   transition: 0.3s ease-in-out;
+  border-radius: 10px;
+  background-color: rgba(map-get(color.$base-colors, grey-blue), 70%); //stylelint-disable-line
 
   &__search {
     grid-area: search;
-    font-family: "Roboto Mono", monospace;
-    justify-self: center;
     align-self: center;
+    width: 80%;
+    height: 3rem;
     border: 1px solid color.$grey;
     border-radius: 3px;
-    height: 3rem;
-    width: 80%;
+    font-family: "Roboto Mono", monospace;
+    justify-self: center;
   }
 
   &__audio {
     grid-area: audio;
-    justify-self: center;
-    border-radius: 12px;
     width: 90%;
     height: 152px;
-    user-select: none;
     transition: 0.3s ease-in-out;
+    border-radius: 12px;
+    user-select: none;
+    justify-self: center;
   }
 
   &__list {
     grid-area: songs;
+    align-self: center;
+    width: 95%;
+    max-height: 80%;
+    overflow-y: scroll;
     list-style: none;
     justify-self: center;
-    align-self: center;
-    max-height: 80%;
-    width: 95%;
-    overflow-y: scroll;
     scroll-behavior: smooth;
   }
 
-  &__list-item, &__song {
-    color: rgb(223 223 223);
+  &__list-item,
+  &__song {
+    color: rgb(223, 223, 223);
     text-decoration: none;
   }
 
-  &__list-item:hover, &__song:hover, &__artist:hover {
+  &__list-item:hover,
+  &__song:hover,
+  &__artist:hover {
     color: rgb(175, 173, 173);
   }
 
   &__list-item:nth-child(2n -1) {
-    background-color: rgb(89 89 110 / 90%);
+    background-color: rgb(89, 89, 110, 90%);
   }
 
   &__list-item--active {
-    background-color: rgba(58, 58, 73, 0.9) !important;
+    background-color: rgba(58, 58, 73, 90%) !important; //stylelint-disable-line
   }
 
   &__artist {
@@ -88,12 +91,12 @@
 
   &__spinner {
     display: none;
-    grid-area: songs;
     position: relative;
+    grid-area: songs;
+    width: 10rem;
+    height: 10rem;
     translate: -50% -50%;
     inset: 50%;
-    height: 10rem;
-    width: 10rem;
 
     &--active {
       display: block;
@@ -104,11 +107,10 @@
 @media screen and (width < 770px) {
   .spotify-connection {
     grid-template-areas:
-    "search"
-    "songs"
-    "audio";
+      "search"
+      "songs"
+      "audio";
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
     margin: 0;
 
     &__audio {

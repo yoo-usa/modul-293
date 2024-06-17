@@ -5,19 +5,20 @@
   from {
     transform: translateX(75%);
   }
+
   to {
     transform: translateX(0);
   }
 }
 
 .navbar {
-  box-shadow: none;
-  background-color: transparent;
-  user-select: none;
   overflow-y: hidden;
+  background-color: transparent;
+  box-shadow: none;
+  user-select: none;
 
   &__scroll-wrapper {
-    overflow-x: hidden !important;
+    overflow-x: hidden !important; //stylelint-disable-line
   }
 
   &__mobile-header {
@@ -25,18 +26,18 @@
   }
 
   &__mobile-content {
-    background-color: rgb(89 89 110 / 90%);
-    box-shadow: 0 0 50px 5px rgb(60 60 60 / 70%);
     border-radius: 5px;
+    background-color: rgb(89, 89, 110, 90%);
+    box-shadow: 0 0 50px 5px rgb(60, 60, 60, 70%);
 
     &-link {
-      font-size: 1.5rem;
       padding: 2rem 0;
+      font-size: 1.5rem;
       text-align: center;
 
       &-title {
-        font-family: "Roboto Mono", monospace;
         color: white;
+        font-family: "Roboto Mono", monospace;
         text-decoration: none;
       }
 
@@ -48,10 +49,10 @@
     &-link-dropdown {
       position: relative;
       left: 50%;
-      list-style: none;
       grid-area: cursor;
-      font-size: 1rem;
       padding: 0;
+      font-size: 1rem;
+      list-style: none;
       text-align: left;
 
       &-element {
@@ -73,31 +74,32 @@
     @include mixins.content-grid-full-block;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding-inline: 2rem;
 
     &-links {
       display: flex;
+      justify-content: space-evenly;
       font-family: "Roboto Mono", monospace;
       font-size: 1.5rem;
+      font-weight: 400;
       line-height: 1.5rem;
-      font-optical-sizing: auto;
-      font-weight: normal;
       list-style: none;
-      justify-content: space-evenly;
+      font-optical-sizing: auto;
     }
 
     &-link-dropdown {
       display: none;
       position: absolute;
-      list-style: none;
       grid-area: cursor;
-      font-size: 1rem;
       padding: 0;
+      font-size: 1rem;
+      list-style: none;
 
       &-element {
         transform: translateX(75%);
+
         &-link {
           color: black;
           text-decoration: none;
@@ -115,19 +117,18 @@
       grid-template-areas:
         "link"
         "cursor";
-
       margin-left: 1.5rem;
     }
 
     &-link:hover,
-    &-link:hover &-link-title{
+    &-link:hover &-link-title {
       color: rgb(81, 81, 92);
       cursor: pointer;
 
-      & .navbar__desktop-content-cursor {
+      .navbar__desktop-content-cursor {
         display: block;
-        color: black;
         animation: cursor 1s infinite;
+        color: black;
       }
     }
 
@@ -137,8 +138,8 @@
 
     @for $i from 1 through 10 {
       &-link:hover &-link-dropdown-element:nth-child(#{$i}n) {
-        animation: slide 0.5s #{$i * 0.1}s ease-in-out;
         transform: translateX(0);
+        animation: slide 0.5s #{$i * 0.1}s ease-in-out;
       }
     }
 
@@ -158,13 +159,13 @@
     }
 
     &-logo {
-      height: clamp(3rem, 10vw, 6rem);
       width: clamp(3rem, 10vw, 6rem);
+      height: clamp(3rem, 10vw, 6rem);
       margin: 1rem 0;
-      border-radius: 50%;
-      background-size: cover;
-      background-repeat: no-repeat;
       transition: 0.5s ease-in-out;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }
