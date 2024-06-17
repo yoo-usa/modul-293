@@ -18,7 +18,7 @@
   user-select: none;
 
   &.navbar--open {
-    & .navbar__scroll-wrapper {
+    .navbar__scroll-wrapper {
       display: block;
     }
   }
