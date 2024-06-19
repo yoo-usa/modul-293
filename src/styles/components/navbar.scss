@@ -145,8 +145,7 @@
 
     @for $i from 1 through 10 {
       &-link:hover &-link-dropdown-element:nth-child(#{$i}n) {
-        transform: translateX(0);
-        animation: slide 0.5s #{$i * 0.1}s ease-in-out;
+        animation: slide 0.5s #{$i * 0.1}s ease-in forwards;
       }
     }
 
