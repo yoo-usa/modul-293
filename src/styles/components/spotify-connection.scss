@@ -106,11 +106,11 @@
 
 @media screen and (width < 770px) {
   .spotify-connection {
-    grid-template-areas:
-      "search"
-      "songs"
-      "audio";
-    grid-template-columns: 1fr;
+    grid-template:
+      "search" 1.5fr
+      "songs" 3fr
+      "audio" 2fr
+      / 1fr;
     margin: 0;
 
     &__audio {
