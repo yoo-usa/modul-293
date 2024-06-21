@@ -1,4 +1,5 @@
-dateModified: 1717941638
+dateModified: 1718950273
+
 email:
   fromEmail: dev-test@yoo.digital
   fromName: 293-m-project
@@ -28,8 +29,6 @@ meta:
     592d68f4-b1af-4517-93fc-ad9dadb2ab09: About # About
     639a69ad-d5f3-4057-8d87-137c69661c57: Logo # Logo
     651cb76d-e620-419f-9030-4a6c45f86ed3: 'Background Image' # Background Image
-    a929312e-d175-466b-9d2e-235dc042499b: isForm # isForm
-    b900839d-70b9-4ebf-9f19-b36104c87f88: isLocation # isLocation
     ba830877-e04b-4616-808c-6b8461b0b2e2: About # About
     d2f9ed8d-d015-40ee-91a5-8d893b010e25: 'Info Text' # Info Text
     d14d2f9e-1b65-4dc6-8871-dfabe0db522f: Default # Default
@@ -58,11 +57,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  neo:
-    edition: standard
-    enabled: true
-    licenseKey: JOPFSUHXE19PIL0YLL65MSGT
-    schemaVersion: 4.0.0
   project-extension:
     edition: standard
     enabled: true
@@ -71,11 +65,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  seomatic:
-    edition: standard
-    enabled: true
-    licenseKey: DAVSW2BRE3PKQMWQBVI0X9LQ
-    schemaVersion: 3.0.12
   super-table:
     edition: standard
     enabled: true

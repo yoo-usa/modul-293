@@ -91,30 +91,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            elementCondition: null
-            fieldUid: a929312e-d175-466b-9d2e-235dc042499b # isForm
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 964936e1-2752-44b6-be10-27f840c15bd7
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: b900839d-70b9-4ebf-9f19-b36104c87f88 # isLocation
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d2db0db3-5bfe-4212-9999-2e990548b42f
-            userCondition: null
-            warning: null
-            width: 100
         name: Content
         uid: d4244078-957e-4144-9c0d-0f1f526a16ab
         userCondition: null
