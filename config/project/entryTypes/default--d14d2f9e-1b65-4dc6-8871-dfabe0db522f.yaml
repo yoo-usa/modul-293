@@ -91,6 +91,30 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: d3297840-9fce-4338-9145-1a95555ad540 # IsForm
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 14358472-714a-48c4-8eb1-3039bd84b318
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: faba4b5e-82a2-478b-bd0b-4750e64b6d78 # IsLocation
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8b49ec9-7e9f-4e54-b186-2383b03a00d0
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: d4244078-957e-4144-9c0d-0f1f526a16ab
         userCondition: null

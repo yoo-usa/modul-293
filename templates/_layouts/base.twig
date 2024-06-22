@@ -1,5 +1,5 @@
 {% set currentLang = currentSite.language[0:2]|default('de') %}
-{% set pageTitle = seomatic.meta.parsedValue('seoTitle') %}
+{#{% set pageTitle = seomatic.meta.parsedValue('seoTitle') %}#}
 
 <!doctype html>
 <html lang="{{ currentLang }}">
@@ -19,14 +19,14 @@
 
         <meta property="og:country-name" content="CH">
 
-        {% set organizationJsonLd = seomatic.jsonLd.create({
-            'type': 'Organization',
-            'url': siteUrl(''),
-            'logo': siteUrl('/assets/images/logo-' ~ currentSite.handle|split('_')[0] ~ '.svg'),
-        }) %}
+{#        {% set organizationJsonLd = seomatic.jsonLd.create({#}
+{#            'type': 'Organization',#}
+{#            'url': siteUrl(''),#}
+{#            'logo': siteUrl('/assets/images/logo-' ~ currentSite.handle|split('_')[0] ~ '.svg'),#}
+{#        }) %}#}
 
-        <meta name="application-name" content="{{ pageTitle }}">
-        <meta name="apple-mobile-web-app-title" content="{{ pageTitle }}">
+        <meta name="application-name" content="{{ entry.title }}">
+        <meta name="apple-mobile-web-app-title" content="{{ entry.title }}">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name='apple-touch-fullscreen' content='yes'>

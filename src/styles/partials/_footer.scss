@@ -2,7 +2,10 @@
   display: flex;
   grid-row: footer-start / footer-end;
   justify-content: space-between;
+  margin: 0 8rem 1rem;
+  border-radius: 100px;
   background-color: rgba(97, 97, 120, 80%);
+  box-shadow: 0 5px 20px 0 rgba(64, 64, 64, 80%);
 
   &__impressum {
     margin-block: 0.5rem;

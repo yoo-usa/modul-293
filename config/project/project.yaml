@@ -1,5 +1,4 @@
-dateModified: 1718950273
-
+dateModified: 1719058124
 email:
   fromEmail: dev-test@yoo.digital
   fromName: 293-m-project
@@ -32,10 +31,12 @@ meta:
     ba830877-e04b-4616-808c-6b8461b0b2e2: About # About
     d2f9ed8d-d015-40ee-91a5-8d893b010e25: 'Info Text' # Info Text
     d14d2f9e-1b65-4dc6-8871-dfabe0db522f: Default # Default
+    d3297840-9fce-4338-9145-1a95555ad540: IsForm # IsForm
     e64fed43-43e3-4ef1-bd91-cba55dff1e11: homepage # homepage
     f2f10eba-1a45-41d9-9e63-c76bcb33a98b: 'Background Image' # Background Image
     f8041b4b-1238-4323-a5c5-ee22373ce456: Logo # Logo
     f3796036-0ba8-4173-b40f-873b81ef93c2: Common # Common
+    faba4b5e-82a2-478b-bd0b-4750e64b6d78: IsLocation # IsLocation
 plugins:
   architect:
     edition: standard
