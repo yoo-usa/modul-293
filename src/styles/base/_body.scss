@@ -1,3 +1,6 @@
+html {
+  border: 0;
+}
 body {
   display: grid;
   grid-template-rows: [navbar-start] auto [navbar-end content-start] 1fr [content-end footer-start] auto [footer-end];
