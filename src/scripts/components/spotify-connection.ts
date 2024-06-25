@@ -62,7 +62,7 @@ async function listAllSongs(allSongs: Track[]) {
     if(li.dataset.id != id) {
       li.classList.add("spotify-connection__list-item");
       li.dataset.song = `https://open.spotify.com/embed/track/${id}?utm_source=generator`;
-      li.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
+      li.innerHTML = `${index + 1}. <a href="${song.external_urls.spotify}" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
       li.dataset.id = id;
     }
   });
