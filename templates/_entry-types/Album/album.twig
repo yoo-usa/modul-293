@@ -1,0 +1,13 @@
+{% extends '_layouts/base.twig' %}
+
+{% block content %}
+    {% set mediaDimensions = [
+        { 'width' : 420, 'height': 'auto', 'ratio': 1, hightDpi: 2 },
+        { 'width' : 620, 'height': 'auto', 'ratio': 2 },
+        { 'width' : 993, 'height': 'auto', 'ratio': 2.5 },
+        { 'width' : 1920, 'ratio': 2.5 },
+    ] %}
+
+    {% include '_components/album-connection.twig' %}
+
+{% endblock %}

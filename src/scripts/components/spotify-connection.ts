@@ -1,6 +1,11 @@
 const clientId: string = "94c50c85e2924978abcb86d642c25ac4";//process.SPOTIFY_CLIENT_ID!;
 const clientSecret: string = "d8eed1006d3d42b79796792497add54a";// process.env.SPOTIFY_CLIENT_SECRET!;
 
+let oldArtist: string = "";
+let lastSong: HTMLLIElement;
+const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
+const audio: HTMLIFrameElement = document.querySelector(".spotify-connection__audio") as HTMLIFrameElement;
+const albumLink = document.querySelector<HTMLElement>(".spotify-connection__album-link") as HTMLLinkElement;
 const list = document.querySelector<HTMLElement>(".spotify-connection__list");
 const spinner = document.querySelector<HTMLElement>(".spotify-connection__spinner");
 
@@ -12,11 +17,6 @@ if(list && list.innerHTML.trim() == "") {
     list.appendChild(li)
   }
 }
-
-let oldArtist: string = "";
-let lastSong: HTMLLIElement;
-const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
-const audio: HTMLIFrameElement = document.querySelector(".spotify-connection__audio") as HTMLIFrameElement;
 
 export const init = () => { // rootEl: HTMLElement
   search?.addEventListener("input", async (e: Event) => {
@@ -32,16 +32,18 @@ interface Track {
   name: string;
   popularity: number;
   artists: Artist[];
-  external_urls: {
-    spotify: string;
-  };
+  album: Album;
+  id: string;
+}
+
+interface Album {
+  id: string;
 }
 
 interface Artist {
   id: string;
   name: string;
   href: string;
-  external_urls: { spotify: string };
   images: { url: string }[];
 }
 
@@ -57,13 +59,14 @@ async function listAllSongs(allSongs: Track[]) {
   }
   allElements.forEach((li: HTMLLIElement, index: number) => {
     const song: Track = allSongs[index];
-    const id: string = song.external_urls.spotify.split("/").slice(-1)[0];
+    const albumId: string = song.album.id;
+    const songId: string = song.id;
 
-    if(li.dataset.id != id) {
+    if(li.dataset.songId != songId) {
       li.classList.add("spotify-connection__list-item");
-      li.dataset.song = `https://open.spotify.com/embed/track/${id}?utm_source=generator`;
-      li.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="${song.artists[0].external_urls.spotify}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
-      li.dataset.id = id;
+      li.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="https://open.spotify.com/artist/${song.artists[0].id}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
+      li.dataset.songId = songId;
+      li.dataset.albumId = albumId;
     }
   });
 }
@@ -135,7 +138,10 @@ function currentSong(songTitle: HTMLLIElement) {
   }
   lastSong = songTitle;
   songTitle.classList.add("spotify-connection__list-item--active");
-  if (songTitle.dataset.song) {
-    audio.src = songTitle.dataset.song;
+  if (songTitle.dataset.songId) {
+    audio.src = `https://open.spotify.com/embed/track/${songTitle.dataset.songId}?utm_source=generator`;
+  }
+  if (songTitle.dataset.albumId) {
+    albumLink.href = `/Album?albumId=${songTitle.dataset.albumId}`;
   }
 }

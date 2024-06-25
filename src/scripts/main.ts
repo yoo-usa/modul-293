@@ -7,3 +7,4 @@ componentLoader('grid-example');
 componentLoader('spotify-connection');
 componentLoader('map');
 componentLoader('email-form');
+componentLoader('album-connection');
