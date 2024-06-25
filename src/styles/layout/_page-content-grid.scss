@@ -4,4 +4,5 @@
   @include mixins.content-grid-wrapper;
 
   grid-row: content-start / content-end;
+  overflow-x: hidden;
 }

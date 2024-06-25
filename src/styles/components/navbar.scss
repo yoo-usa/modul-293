@@ -1,16 +1,6 @@
 @use "sass:map";
 @use "../helpers/mixins";
 
-@keyframes slide {
-  from {
-    transform: translateX(75%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
 .navbar {
   overflow-y: hidden;
   background-color: transparent;
@@ -105,7 +95,7 @@
       list-style: none;
 
       &-element {
-        transform: translateX(75%);
+        transform: translateX(100%);
 
         &-link {
           color: black;
@@ -161,6 +151,7 @@
     &-link-title {
       grid-area: link;
       color: black;
+      font-size: 2rem;
       text-decoration: none;
     }
 

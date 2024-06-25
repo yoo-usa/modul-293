@@ -1,4 +1,4 @@
-dateModified: 1719058124
+dateModified: 1719304793
 email:
   fromEmail: dev-test@yoo.digital
   fromName: 293-m-project
@@ -21,6 +21,7 @@ fs:
 meta:
   __names__:
     1c2c9305-05ec-4708-a9bc-b5bb20733aac: 'Banner Image' # Banner Image
+    1fb2a281-789b-47cd-bd5c-d568da249a35: Album # Album
     39b1bd22-567b-4b8c-a35e-1812f761a414: Introduction # Introduction
     44b1b133-2a7f-410d-a791-d08d689ced20: homepage # homepage
     58e5330c-b0ef-43ce-bc09-04944358f3ee: 293-m-project # 293-m-project
@@ -33,6 +34,7 @@ meta:
     d14d2f9e-1b65-4dc6-8871-dfabe0db522f: Default # Default
     d3297840-9fce-4338-9145-1a95555ad540: IsForm # IsForm
     e64fed43-43e3-4ef1-bd91-cba55dff1e11: homepage # homepage
+    e95a0410-74a3-4886-aff5-f90c5936225c: Album # Album
     f2f10eba-1a45-41d9-9e63-c76bcb33a98b: 'Background Image' # Background Image
     f8041b4b-1238-4323-a5c5-ee22373ce456: Logo # Logo
     f3796036-0ba8-4173-b40f-873b81ef93c2: Common # Common
