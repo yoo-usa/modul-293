@@ -8,6 +8,8 @@ const audio: HTMLIFrameElement = document.querySelector(".spotify-connection__au
 const albumLink = document.querySelector<HTMLElement>(".spotify-connection__album-link") as HTMLLinkElement;
 const list = document.querySelector<HTMLElement>(".spotify-connection__list");
 const spinner = document.querySelector<HTMLElement>(".spotify-connection__spinner");
+let access_token: string;
+
 
 if(list && list.innerHTML.trim() == "") {
   for(let i = 0; i < 50; i++) {
@@ -18,7 +20,8 @@ if(list && list.innerHTML.trim() == "") {
   }
 }
 
-export const init = () => { // rootEl: HTMLElement
+export const init = async () => {
+  access_token = await getBearerToken();
   search?.addEventListener("input", async (e: Event) => {
     e.preventDefault();
     if (search.value) {
@@ -87,30 +90,43 @@ async function getBearerToken(): Promise<string> {
   throw new Error("Bearer token not retrieved");
 }
 
-async function getAllSongsBySpecificArtist(artist: string): Promise<Track[]> {
-  if(spinner) {
-    spinner.classList.add("spotify-connection__spinner--active");
+async function getAllSongsBySpecificArtist(artist: string) {
+  const maxRetries = 3;
+  let attempts = 0;
+  let success = false;
 
+  if (spinner) {
+    spinner.classList.add("spotify-connection__spinner--active");
   }
 
-  const bearerToken = await getBearerToken();
-  const response = await fetch(
-    `https://api.spotify.com/v1/search?q=artist:${artist}&type=track&market=US&limit=50`,
+  while (attempts < maxRetries && !success) {
+    attempts++;
+    const response = await fetch(
+      `https://api.spotify.com/v1/search?q=artist:${artist}&type=track&market=US&limit=50`,
     {
-      headers: {
-        Authorization: `Bearer ${bearerToken}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  const data = await response.json();
-  const tracks = data.tracks.items;
-  return tracks.sort((a: Track, b: Track) => b.popularity - a.popularity);
+        headers: {
+        Authorization: `Bearer ${access_token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          const tracks = data.tracks.items;
+          success = true;
+          return tracks.sort((a: Track, b: Track) => b.popularity - a.popularity);
+        }
+      })
+      .catch(async (error) => {
+        if(error.message.includes("access token expired")) {
+          access_token = await getBearerToken();
+        }
+      });
+    return response;
+  }
 }
 
 async function setLogo(uri: string): Promise<void> {
-  const access_token = await getBearerToken();
-
   await fetch(uri, {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -129,7 +145,12 @@ async function setLogo(uri: string): Promise<void> {
         }
       }
     })
-    .catch((error) => console.error("Error:", error));
+    .catch(async (error) => {
+      if(error.message.includes("access token expired")) {
+        access_token = await getBearerToken();
+        setLogo(uri);
+      }
+    });
 }
 
 function currentSong(songTitle: HTMLLIElement) {
