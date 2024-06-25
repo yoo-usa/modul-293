@@ -148,7 +148,7 @@ async function setLogo(uri: string): Promise<void> {
     .catch(async (error) => {
       if(error.message.includes("access token expired")) {
         access_token = await getBearerToken();
-        setLogo(uri);
+        await setLogo(uri);
       }
     });
 }
