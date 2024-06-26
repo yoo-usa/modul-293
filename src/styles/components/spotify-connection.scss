@@ -53,6 +53,19 @@
     justify-self: center;
   }
 
+  &__album-link {
+    grid-area: audio;
+    align-self: end;
+    justify-self: center;
+    margin: 1rem 3rem;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+
+    &:hover {
+      color: rgb(51, 51, 62);
+    }
+  }
+
   &__list {
     grid-area: songs;
     align-self: center;
@@ -102,20 +115,23 @@
       display: block;
     }
   }
-}
 
-@media screen and (width < 770px) {
-  .spotify-connection {
+  @media screen and (width < 770px) {
     grid-template:
       "search" 1.5fr
       "songs" 3fr
       "audio" 2fr
+      "album" 1fr
       / 1fr;
     margin: 0;
 
     &__audio {
       align-self: center;
       transform: scale(0.8);
+    }
+
+    &__album-link {
+      grid-area: album;
     }
   }
 }

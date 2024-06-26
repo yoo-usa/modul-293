@@ -10,6 +10,15 @@
   padding-inline: 6rem;
 
   &__input {
+    max-width: 100%;
     margin: 0 0 1rem;
+
+    &-area {
+      height: 10rem;
+    }
+  }
+
+  &__label--important {
+    color: red;
   }
 }

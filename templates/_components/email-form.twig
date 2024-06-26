@@ -1,14 +1,14 @@
 {{ loadCssComponent('email-form') }}
 
 <form class="email-form" method="post">
-    <label class="email-form__label" for="email">E-Mail: </label>
-    <input class="email-form__input" type="email" id="email" name="email" placeholder="sigmas@gmail.com" required />
+    <label class="email-form__label" for="email">E-Mail:<span class="email-form__label--important">*</span></label>
+    <input class="email-form__input" type="email" id="email" name="email" placeholder="example@gmail.com" required />
 
     <label class="email-form__label" for="subject">Subject: </label>
-    <input class="email-form__input" type="text" id="subject" name="subject" maxlength="25" />
+    <input class="email-form__input" type="text" id="subject" name="subject" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="25" />
 
-    <label class="email-form__label" for="email-content">Message: </label>
-    <textarea class="email-form__input" id="email-content" name="email-content"></textarea>
+    <label class="email-form__label" for="email-content">Message:<span class="email-form__label--important">*</span> </label>
+    <textarea class="email-form__input email-form__input-area" id="email-content" name="email-content" minlength="10" placeholder="Sende uns eine Nachricht"></textarea>
 
     <input class="email-form__submit" type="submit">
 </form>
