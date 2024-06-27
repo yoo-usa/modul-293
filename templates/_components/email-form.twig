@@ -7,8 +7,21 @@
     <label class="email-form__label" for="subject">Subject: </label>
     <input class="email-form__input" type="text" id="subject" name="subject" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="25" />
 
+    <label class="email-form__label" for="request">What type of request do you have?:</label>
+    <select class="email-form__input" name="request" id="request">
+        <option value="support">Support</option>
+        <option value="feature-request">Feature Request</option>
+        <option value="bug-report">Bug Report</option>
+        <option value="general-inquiry">General Inquiry</option>
+        <option value="feedback">Feedback</option>
+        <option value="account-issues">Account Issues</option>
+        <option value="billing-issues">Billing Issues</option>
+        <option value="technical-assistance">Technical Assistance</option>
+        <option value="product-information">Product Information</option>
+    </select>
+
     <label class="email-form__label" for="email-content">Message:<span class="email-form__label--important">*</span> </label>
-    <textarea class="email-form__input email-form__input-area" id="email-content" name="email-content" minlength="10" placeholder="Sende uns eine Nachricht"></textarea>
+    <textarea class="email-form__input email-form__input-area" id="email-content" name="email-content" minlength="10" placeholder="Send us a message"></textarea>
 
     <input class="email-form__submit" type="submit">
 </form>
