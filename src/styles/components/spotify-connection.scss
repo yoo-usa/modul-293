@@ -1,5 +1,6 @@
 @use "../helpers/mixins";
 @use "../helpers/color";
+@use "../base/keyframes";
 
 ::-webkit-scrollbar {
   width: 10px;
