@@ -1,28 +1,6 @@
 @use "sass:map";
 @use "../helpers/mixins";
 
-@keyframes slide {
-  from {
-    transform: translateX(75%);
-  }
-
-  to {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes cursor {
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-  40%,
-  75% {
-    opacity: 1;
-  }
-}
-
 .navbar {
   overflow-y: hidden;
   background-color: transparent;
