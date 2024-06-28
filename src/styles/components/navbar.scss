@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../helpers/mixins";
+@use "../base/keyframes";
 
 .navbar {
   overflow-y: hidden;
