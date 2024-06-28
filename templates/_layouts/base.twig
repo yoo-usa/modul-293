@@ -31,7 +31,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name='apple-touch-fullscreen' content='yes'>
 
-        {#            {% include '_partials/favicon.twig' %} #}
+        {% include '_partials/favicon.twig' %} 
 
         {% if craft.app.config.general.devMode %}
             <link rel="stylesheet" href="{{ '/assets/styles/app/main.css'|serverPush }}" type="text/css">
