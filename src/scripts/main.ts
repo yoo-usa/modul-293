@@ -8,3 +8,4 @@ componentLoader('spotify-connection');
 componentLoader('map');
 componentLoader('email-form');
 componentLoader('album-connection');
+componentLoader('youtube-connection')

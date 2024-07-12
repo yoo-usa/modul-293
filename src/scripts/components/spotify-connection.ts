@@ -6,6 +6,7 @@ let lastSong: HTMLLIElement;
 const search: HTMLInputElement = document.querySelector(".spotify-connection__search") as HTMLInputElement;
 const audio: HTMLIFrameElement = document.querySelector(".spotify-connection__audio") as HTMLIFrameElement;
 const albumLink = document.querySelector<HTMLElement>(".spotify-connection__album-link") as HTMLLinkElement;
+const youtubeLink = document.querySelector<HTMLElement>(".spotify-connection__youtube-link") as HTMLLinkElement;
 const list = document.querySelector<HTMLElement>(".spotify-connection__list");
 const spinner = document.querySelector<HTMLElement>(".spotify-connection__spinner");
 let access_token: string;
@@ -70,6 +71,7 @@ async function listAllSongs(allSongs: Track[]) {
       li.innerHTML = `${index + 1}. <a href="" class="spotify-connection__song"><b>${song.name}</b></a> - <a href="https://open.spotify.com/artist/${song.artists[0].id}" class="spotify-connection__artist">${song.artists[0].name}</a>`;
       li.dataset.songId = songId;
       li.dataset.albumId = albumId;
+      li.dataset.youtube = song.artists[0].name;
     }
   });
 }
@@ -164,5 +166,8 @@ function currentSong(songTitle: HTMLLIElement) {
   }
   if (songTitle.dataset.albumId) {
     albumLink.href = `/Album?albumId=${songTitle.dataset.albumId}`;
+  }
+  if(songTitle.dataset.youtube) {
+    youtubeLink.href = `/youtube?q=${songTitle.dataset.youtube}`;
   }
 }

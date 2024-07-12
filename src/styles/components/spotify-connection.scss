@@ -22,10 +22,12 @@
   @include mixins.content-grid-content-block;
 
   display: grid;
+  z-index: 10;
   grid-template-areas:
-    "songs search"
-    "songs audio";
-  grid-template-columns: 1fr 1fr;
+    "songs search search"
+    "songs audio audio"
+    "songs album youtube";
+  grid-template-columns: 2fr 1fr 1fr;
   height: 60vh;
   min-height: 300px;
   margin-inline: 5rem;
@@ -55,10 +57,23 @@
   }
 
   &__album-link {
-    grid-area: audio;
+    grid-area: album;
     align-self: end;
     justify-self: center;
-    margin: 1rem 3rem;
+    margin: 1rem 0;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+
+    &:hover {
+      color: rgb(51, 51, 62);
+    }
+  }
+
+  &__youtube-link {
+    grid-area: youtube;
+    align-self: end;
+    justify-self: center;
+    margin: 1rem 0;
     color: black;
     font-family: "Roboto Mono", monospace;
 
@@ -117,13 +132,13 @@
     }
   }
 
-  @media screen and (width < 770px) {
+  @media screen and (width <= 820px) {
     grid-template:
-      "search" 1.5fr
-      "songs" 3fr
-      "audio" 2fr
-      "album" 1fr
-      / 1fr;
+      "search search" 1.5fr
+      "songs songs" 3fr
+      "audio audio" 2fr
+      "album youtube" 1fr
+      / 1fr 1fr;
     margin: 0;
 
     &__audio {

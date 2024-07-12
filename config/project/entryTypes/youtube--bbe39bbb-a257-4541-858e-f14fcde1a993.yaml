@@ -1,0 +1,71 @@
+fieldLayouts:
+  1a948a34-85a0-453e-99f0-7cc8e00ecd98:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 98c6c525-26f7-46d9-a015-6371fe2346b9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 639a69ad-d5f3-4057-8d87-137c69661c57 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db350cb4-48df-4031-8d78-f3f5076da468
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f2f10eba-1a45-41d9-9e63-c76bcb33a98b # Background Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ce7d27d-fe40-4a6d-abfe-d8cb50c8f7dc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: da6a78d7-f05f-41a7-8f78-49ec07a2c93c
+        userCondition: null
+handle: youtube
+hasTitleField: false
+name: YouTube
+section: af759e79-21b3-42cc-8aa1-9b9ac64c6157 # YouTube
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

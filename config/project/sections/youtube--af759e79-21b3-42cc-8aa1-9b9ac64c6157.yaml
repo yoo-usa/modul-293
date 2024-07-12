@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: youtube
+name: YouTube
+propagationMethod: all
+siteSettings:
+  0223b707-3c9a-486e-8d9f-4e0a9b65b004: # 293-m-project
+    enabledByDefault: true
+    hasUrls: true
+    template: _entry-types/Youtube/youtube.twig
+    uriFormat: youtube
+type: single
